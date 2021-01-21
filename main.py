@@ -1,15 +1,17 @@
 from rich import print
+from dropbox.exceptions import ApiError
+import os
 import warnings
 import dropbox
 import posixpath
-from dropbox.exceptions import ApiError
-from rich.progress import track
+
 try:
     from secrets import DROPBOX_KEY
     localsecret = True
 except ImportError:
     warnings.warn('local_settings failed to import', ImportWarning)
     localsecret = False
+    DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
 
 def process_folder_entries(current_state, entries):
     for entry in entries:
@@ -32,7 +34,7 @@ print("Initializing [bold]Dropbox API...[/bold]")
 dbx = dropbox.Dropbox(DROPBOX_KEY)
 
 print("Scanning for expense files...")
-result = dbx.files_list_folder(path="/FOTOS/macfotos2/Takeout/Google Fotos/2012-06-11/",recursive=True)
+result = dbx.files_list_folder(path="/escuela/",recursive=True)
 files = process_folder_entries({}, result.entries)
 
 # check for and collect any additional entries

@@ -4,12 +4,13 @@ import os
 import dropbox
 import posixpath
 
+DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
 try:
     from secrets import DROPBOX_KEY
     localsecret = True
 except ImportError:
     localsecret = False
-    DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
+    
 
 def process_folder_entries(current_state, entries):
     for entry in entries:

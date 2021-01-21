@@ -20,3 +20,5 @@ jobs:
         env: 
           DROPBOX_KEY: ${{ secrets.DROPBOX_KEY }}
       - run: python3 main.py 
+        env: 
+          DROPBOX_KEY: ${{ secrets.DROPBOX_KEY }}

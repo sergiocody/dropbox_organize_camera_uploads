@@ -1,7 +1,6 @@
 from rich import print
 from dropbox.exceptions import ApiError
 import os
-import warnings
 import dropbox
 import posixpath
 
@@ -9,7 +8,6 @@ try:
     from secrets import DROPBOX_KEY
     localsecret = True
 except ImportError:
-    warnings.warn('local_settings failed to import', ImportWarning)
     localsecret = False
     DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
 

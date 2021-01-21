@@ -15,7 +15,8 @@ jobs:
       - uses: actions/setup-python@v2
         with: 
           python-version: '3.x'
-      - run: pip install -r requirements.txt
+      - run: pip install dropbox
+      - run: pip install posixpath
         env: 
           DROPBOX_KEY: ${{ secrets.DROPBOX_KEY }}
       - run: python3 main.py 

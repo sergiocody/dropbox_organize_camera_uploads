@@ -4,14 +4,17 @@ import os
 import dropbox
 import posixpath
 
+DROPBOX_KEY = "empty for now"
 DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
+print(DROPBOX_KEY)
 try:
     from secrets import DROPBOX_KEY
     localsecret = True
 except ImportError:
     localsecret = False
     
-
+print("a ver ahora")
+print(DROPBOX_KEY)
 def process_folder_entries(current_state, entries):
     for entry in entries:
         if isinstance(entry, dropbox.files.FileMetadata):

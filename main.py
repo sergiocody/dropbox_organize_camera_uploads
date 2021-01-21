@@ -5,7 +5,8 @@ import dropbox
 import posixpath
 
 DROPBOX_KEY = "empty for now"
-DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
+print(DROPBOX_KEY)
+DROPBOX_KEY = os.environ.get("DROPBOX_KEY")
 print(DROPBOX_KEY)
 try:
     from secrets import DROPBOX_KEY
